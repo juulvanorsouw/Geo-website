@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afval Test Website 1</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <div class="wrapper">
@@ -14,10 +15,26 @@
         <main>
             <h3>Test Website toch knap dat het werkt</h3>
             <p>minder had ik niet kunnen doen</p>
+
+            <!-- Map Container -->
+            <div id="map" style="height: 400px;"></div>
         </main>
         <footer>
             <p>Footer test © 2024</p>
         </footer>
     </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.505, -0.09], 13); // Coordinates for London, UK
+
+        // Add a basemap layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    </script>
 </body>
 </html>
