@@ -44,3 +44,26 @@ h1, h3 {
 .hidden {
   display: none;
 }
+
+/* The  layer switcher on the map*/
+.leaflet-control-layers {
+  background: #ffffff;
+  color: #25272c;
+  font-family: 'Verdana', 'Poppins', 'sans-serif';
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.leaflet-control-layers-toggle {
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  border: 2px solid #25272c;
+  border-radius: 4px;
+}
+
+.leaflet-control-layers-expanded {
+  max-height: 150px; /* Adjust this as needed */
+  overflow-y: auto; /* Scroll if necessary */
+}
