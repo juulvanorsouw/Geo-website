@@ -7,3 +7,43 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <!-- Navigation Bar -->
+            <nav>
+                <div class="content">
+                    <div class="logo"><a href="index.html"><img src="pictures/logo.png" height="60px"></a></div>
+                    <ul class="links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a class="active" href="index2.html">index2</a></li>
+                        <li><a href="index3.html">index3</a></li>
+                        <li><a href="index4.html">index4</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- End of Navigation Bar -->
+
+            <!-- Title in White Box -->
+        </header>
+        <main>
+            <h3>Test Website toch knap dat het werkt deel 2</h3>
+
+            <!-- Map Container -->
+            <div id="map" style="height: 700px;"></div>
+        </main>
+        <footer>
+            <p>Footer test © 2024</p>
+        </footer>
+    </div>
+
+    <!-- Leaflet JavaScript from CDN -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Your external JavaScript files as modules -->
+    <script type="module" src="./map2/map2.js"></script>
+    <script type="module" src="./map2/layerswitcher.js"></script>
+    <script type="module" src="./map2/homeButton.js"></script>
+</body>
+</html>

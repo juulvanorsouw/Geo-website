@@ -117,6 +117,10 @@ nav .links a:hover {
   color: #25272c;
 }
 
+.content .links li a.active {
+	font-weight: bold;
+}
+
 @media screen and (max-width: 900px) {
   .menu-icon {
       display: block;
