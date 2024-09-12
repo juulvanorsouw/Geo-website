@@ -23,9 +23,12 @@
         </footer>
     </div>
 
-    <!-- Leaflet JavaScript -->
+    <!-- Leaflet JavaScript from CDN -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <!-- Your external JavaScript file -->
-    <script src="map.js"></script>
+
+    <!-- Your external JavaScript files as modules -->
+    <script type="module" src="./map/map.js"></script>
+    <script type="module" src="./map/layerswitcher.js"></script>
+    <script type="module" src="./map/homeButton.js"></script>
 </body>
 </html>
