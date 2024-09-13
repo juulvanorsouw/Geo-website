@@ -1,55 +1,110 @@
+/* General Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
+/* Wrapper Flexbox */
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
 }
 
-header, footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em 0;
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
 }
 
-main {
-    flex: 1;
-    padding: 5px;
-    text-align: center;
+.sidebar .logo img {
+  width: 120px;
+  margin-bottom: 20px;
 }
 
-h1, h3 {
-    margin: 0;
-    padding: 10px;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
-.back-to-home {
-  cursor: pointer;
-  padding: 5px;
-  background: #fff;
-  box-shadow: 0 1px 5px rgba(0, 0, 0,   0.65);
+.sidebar ul li {
+  text-align: center;
+  margin: 15px 0;
 }
 
-.leaflet-touch .back-to-home {
-  width: 34px;
-  height: 34px;
+.sidebar ul li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 0;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-.hidden {
-  display: none;
+.sidebar ul li a:hover, 
+.sidebar ul li a.active {
+  background-color: #555;
 }
 
-/* The  layer switcher on the map*/
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+
+/* Main Content Styling */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background-color: #25272c;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+header h3 {
+  margin: 0;
+}
+
+/* Map Styling */
+#map {
+  width: 100%;
+  height: 700px;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+}
+
+/* Layer Switcher (For Map Controls) */
 .leaflet-control-layers {
   background: transparent;
-  color: #25272c;
-  font-family: 'Verdana', 'Poppins', 'sans-serif';
+  color: #333;
+  font-family: 'Verdana', 'Poppins', sans-serif;
   font-size: 14px;
   border-radius: 4px;
   padding: 5px;
@@ -59,7 +114,7 @@ h1, h3 {
   width: 36px;
   height: 36px;
   background: transparent;
-  border: 2px solid #25272c;
+  border: 2px solid #333;
   border-radius: 4px;
 }
 
@@ -73,63 +128,48 @@ h1, h3 {
   text-align: left;
 }
 
-/* Additions for Navigation Bar */
-header {
-  position: relative;
-  background-color: #25272c;
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
+/* Home Button on Map */
+.back-to-home {
+  cursor: pointer;
+  padding: 5px;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
 }
 
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
+.leaflet-touch .back-to-home {
+  width: 34px;
+  height: 34px;
 }
 
-nav .content {
-  display: flex;
-  align-items: center;
+/* Hidden Class */
+.hidden {
+  display: none;
 }
 
-nav .links {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+  .sidebar {
+      width: 200px;
+  }
+  .main-content {
+      margin-left: 200px;
+  }
 }
 
-nav .links li {
-  margin: 0 10px;
-}
+@media screen and (max-width: 576px) {
+  .sidebar {
+      width: 100px;
+  }
+  .main-content {
+      margin-left: 100px;
+  }
 
-nav .links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
+  .sidebar ul li a {
+      font-size: 14px;
+      padding: 8px 0;
+  }
 
-nav .links a:hover {
-  background-color: #e6e6e6;
-  color: #25272c;
-}
-
-.content .links li a.active {
-	font-weight: bold;
-}
-
-@media screen and (max-width: 900px) {
-  .menu-icon {
-      display: block;
-      font-size: 18px;
-      cursor: pointer;
+  .sidebar ul li a i {
+      margin-right: 5px;
   }
 }

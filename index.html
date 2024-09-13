@@ -10,32 +10,32 @@
 </head>
 <body>
     <div class="wrapper">
-        <header>
-            <!-- Navigation Bar -->
-            <nav>
-                <div class="content">
-                    <div class="logo"><a href="index.html"><img src="pictures/logo.png" height="60px"></a></div>
-                    <ul class="links">
-                        <li><a class="active" href="index.html">Home</a></li>
-                        <li><a href="index2.html">index2</a></li>
-                        <li><a href="index3.html">index3</a></li>
-                        <li><a href="index4.html">index4</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <!-- End of Navigation Bar -->
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="pictures/logo.png" alt="Logo" height="60px">
+            </div>
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index2.html"><i class="fas fa-map"></i> Index 2</a></li>
+                <li><a href="index3.html"><i class="fas fa-info-circle"></i> Index 3</a></li>
+                <li><a href="index4.html"><i class="fas fa-envelope"></i> Index 4</a></li>
+            </ul>
+        </div>
 
-            <!-- Title in White Box -->
-        </header>
-        <main>
-            <h3>Test Website toch knap dat het werkt</h3>
-
-            <!-- Map Container -->
-            <div id="map" style="height: 700px;"></div>
-        </main>
-        <footer>
-            <p>Footer test © 2024</p>
-        </footer>
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <header>
+                <h3>Test Website toch knap dat het werkt</h3>
+            </header>
+            <main>
+                <!-- Map Container -->
+                <div id="map" style="height: 700px;"></div>
+            </main>
+            <footer>
+                <p>Footer test © 2024</p>
+            </footer>
+        </div>
     </div>
 
     <!-- Leaflet JavaScript from CDN -->
