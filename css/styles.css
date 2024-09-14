@@ -37,6 +37,7 @@ body {
     text-align: center;
     padding: 1em 0;
     border-radius: 16px;
+    border: 2px solid #202632;
   }
 
   header {
@@ -47,4 +48,5 @@ body {
     text-align: center;
     padding: 1em 0;
     border-radius: 16px;
+    border: 2px solid #202632;
   }
