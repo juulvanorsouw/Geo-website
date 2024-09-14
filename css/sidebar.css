@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     color: #454f6f;
+    border-radius: 16px;
   }
   
   .sidebar .logo img {
