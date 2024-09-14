@@ -1,50 +1,85 @@
 /* Sidebar Styles */
 .sidebar {
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    background-color: #191c24;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #454f6f;
-    border-radius: 16px;
-    border: 2px solid #202632;
-  }
-  
-  .sidebar .logo img {
-    width: 120px;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-  
-  .sidebar ul li {
-    text-align: center;
-    margin: 15px 0;
-  }
-  
-  .sidebar ul li a {
-    display: block;
-    color: #454f6f;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 0;
-    width: 100%;
-    transition: background-color 0.3s ease;
-  }
-  
-  .sidebar ul li a:hover, 
-  .sidebar ul li a.active {
-    background-color: #000000;
-  }
-  
-  .sidebar ul li a i {
-    margin-right: 10px;
-  }
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background-color: #191c24;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #454f6f;
+  border-radius: 16px;
+  border: 2px solid #202632;
+  transform: translateX(0); /* Start visible by default */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.closed {
+  transform: translateX(-250px);
+}
+
+.sidebar .logo img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.sidebar ul li a,
+.sidebar-toggler .fa-bars {
+  display: block;
+  color: #454f6f;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 0;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover, 
+.sidebar ul li a.active {
+  background-color: #000000;
+}
+
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+
+/* Main content Styles */
+.main-content {
+  margin-left: 250px; 
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+  margin-left: 0;
+}
+
+/* Style for the Sidebar Toggler (Hamburger Icon) */
+.sidebar-toggler {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.sidebar-toggler i {
+  transition: color 0.3s ease;
+}
+
+.sidebar-toggler:hover i {
+  color: #fff;
+}
