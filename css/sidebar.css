@@ -1,0 +1,48 @@
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: #191c24;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #454f6f;
+  }
+  
+  .sidebar .logo img {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .sidebar ul li {
+    text-align: center;
+    margin: 15px 0;
+  }
+  
+  .sidebar ul li a {
+    display: block;
+    color: #454f6f;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 0;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover, 
+  .sidebar ul li a.active {
+    background-color: #000000;
+  }
+  
+  .sidebar ul li a i {
+    margin-right: 10px;
+  }

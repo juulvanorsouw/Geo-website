@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sjiek de friemel</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/statistics.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
@@ -28,6 +31,41 @@
             <header>
                 <h3>Test Website toch knap dat het werkt</h3>
             </header>
+    <!-- Top 4 statistics -->
+    <div class="statistics-section">
+        <div class="statistics-row">
+            <div class="statistic-card">
+                <i class="fas fa-poop statistic-icon"></i>
+                <div class="statistic-text">
+                    <p class="statistic-label">Test tekst 1p</p>
+                    <h6 class="statistic-value">1</h6>
+                </div>
+            </div>
+            <div class="statistic-card">
+                <i class="fas fa-poop statistic-icon"></i>
+                <div class="statistic-text">
+                    <p class="statistic-label">Test tekst 2</p>
+                    <h6 class="statistic-value">2</h6>
+                </div>
+            </div>
+            <div class="statistic-card">
+                <i class="fas fa-poop statistic-icon"></i>
+                <div class="statistic-text">
+                    <p class="statistic-label">Test tekst 3</p>
+                    <h6 class="statistic-value">3</h6>
+                </div>
+            </div>
+            <div class="statistic-card">
+                <i class="fas fa-poop statistic-icon"></i>
+                <div class="statistic-text">
+                    <p class="statistic-label">Test tekst 4</p>
+                    <h6 class="statistic-value">4</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top 4 statistics -->
+
             <main>
                 <!-- Map Container -->
                 <div id="map" style="height: 700px;"></div>
@@ -37,7 +75,7 @@
             </footer>
         </div>
     </div>
-
+ 
     <!-- Leaflet JavaScript from CDN -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
