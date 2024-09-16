@@ -6,9 +6,9 @@ let config = {
   maxZoom: 18,
 };
 
-export const zoom = 6;
-export const lat = 36.7783; // Latitude for the center of California
-export const long = -119.4179; // Longitude for the center of California
+export const zoom = 9;  // Adjust the zoom level to fit the region
+export const lat = 39.7285; // Latitude for Chico, California
+export const long = -121.65; // Longitude for Chico, California
 
 // Initialize the map centered on the Netherlands without any tile layers
 export const map = L.map("map", config).setView([lat, long], zoom);
