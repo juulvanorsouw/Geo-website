@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sjiek de friemel</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/statistics.css">
+    <link rel="stylesheet" href="css/mapelements.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"/>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="pictures/logo.png" alt="Logo" height="60px">
+            </div>
+            <ul>
+                <li><a href="index.html" ><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index2.html"><i class="fas fa-map"></i> Index 2</a></li>
+                <li><a href="index3.html"class="active"><i class="fas fa-info-circle"></i> Index 3</a></li>
+                <li><a href="index4.html"><i class="fas fa-envelope"></i> Index 4</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Sidebar Toggler Button -->
+
+
+            <header>
+                <h3>Test Website toch knap dat het werkt</h3>
+                <a href="#" class="sidebar-toggler flex-shrink-0" aria-expanded="false">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </header>
+
+            <main>
+                <div class="map-section">
+                    <h4>Map</h4>
+                    <!-- Map Container -->
+                    <div id="map" style="height: 700px; width: 100%;"></div>
+                </div>
+            </main>
+            
+            <footer>
+                <p>Footer test © 2024</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="./data/chart1.js"></script>
+    <script src="./data/chart2.js"></script>
+
+    <!-- Your external JavaScript files as modules -->
+    <script type="module" src="./map2/map2.js"></script>
+    <script type="module" src="./map2/layerswitcher.js"></script>
+    <script type="module" src="./map2/homeButton.js"></script>
+    <script src="./JS/sidebar.js"></script>
+
+</body>
+</html>
