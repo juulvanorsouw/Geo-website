@@ -1,7 +1,9 @@
 // layerswitcher.js
 
-import { map } from "./map.js"
-import { camp_fire } from "./camp_fire.js";
+import { map } from "./map.js";
+import { camp_fire } from "./data/camp_fire.js";
+import { house_0 } from "./data/house_0.js";
+import { house_1_10 } from "./data/house_1_10.js";
 
 // Define base map layers
 const osmLayer = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -44,6 +46,60 @@ const campFireLayer = L.geoJSON(camp_fire, {
 });
 map.addLayer(campFireLayer);
 
+// Define house icon
+let marker_house_o = new L.Icon({
+  iconUrl: 'pictures/logo.png',
+  iconAnchor: [10.5, 16],
+  iconSize: [16, 24],
+  popupAnchor: [0, -16]
+});
+
+// Create and add house layer
+let house_0Layer = new L.geoJSON(house_0, {
+  onEachFeature: function(feature, layer) {
+    layer.bindTooltip(feature.properties.Lang);
+    layer.setIcon(marker_house_o);
+  }
+});
+
+// Define house icon
+let marker_house_1_10 = new L.Icon({
+  iconUrl: 'pictures/logo.png',
+  iconAnchor: [10.5, 16],
+  iconSize: [50, 100],
+  popupAnchor: [0, -16]
+});
+
+// Create and add house layer
+let house_1_10Layer = new L.geoJSON(house_1_10, {
+  onEachFeature: function(feature, layer) {
+    layer.bindTooltip(feature.properties.Lang);
+    layer.setIcon(marker_house_1_10);
+  }
+});
+
+// Function to update the visibility of the house layer based on zoom level
+function updateHouseLayerVisibility() {
+  if (map.getZoom() === 13.5) {
+    map.addLayer(house_0Layer, house_1_10);
+  } else {
+    map.removeLayer(house_0Layer, house_1_10);
+  }
+}
+
+// Initialize visibility of the house layer
+updateHouseLayerVisibility();
+
+// Add zoom event listener
+map.on('zoomend', updateHouseLayerVisibility);
+
+// Define data layers
+let datalagen = {
+  'Fire boundary': campFireLayer,
+  'No Visible Damage': house_0Layer,
+  'Affected (1-9%)': house_1_10Layer,
+};
+
 // Create and add base map switcher control to the map
-const lagenSwitcher = new L.Control.Layers(basemaps);
+const lagenSwitcher = new L.Control.Layers(basemaps, datalagen);
 map.addControl(lagenSwitcher);
