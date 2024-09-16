@@ -13,3 +13,11 @@ export const long = -95.7129; // Longitude for the center of the USA
 
 // Initialize the map centered on the USA
 export const map = L.map("map", config).setView([lat, long], zoom);
+
+
+// Add the scale control to the map
+L.control
+  .scale({
+    imperial: true,  // Only metric scale
+  })
+  .addTo(map);
