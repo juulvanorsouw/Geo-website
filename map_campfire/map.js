@@ -6,7 +6,7 @@ let config = {
   maxZoom: 18,
 };
 
-export const zoom = 9;  // Adjust the zoom level to fit the region
+export const zoom = 10;  // Adjust the zoom level to fit the region
 export const lat = 39.7285; // Latitude for Chico, California
 export const long = -121.65; // Longitude for Chico, California
 
