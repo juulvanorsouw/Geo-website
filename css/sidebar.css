@@ -10,7 +10,6 @@
   align-items: center;
   color: #454f6f;
   border-radius: 16px;
-  border: 2px solid #202632;
   transform: translateX(0); /* Start visible by default */
   transition: transform 0.3s ease;
 }
