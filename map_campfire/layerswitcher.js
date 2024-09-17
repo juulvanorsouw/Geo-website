@@ -1,7 +1,6 @@
 import { map } from "./map.js";
 import { camp_fire } from "./data/camp_fire.js";
-import { house_0 } from "./data/house_0.js";
-import { house_1_10 } from "../map2/house_1_10.js";
+import { house_1_10 } from "./data/house_1_10.js";
 
 // Define base map layers
 const osmLayer = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -31,7 +30,7 @@ const basemaps = {
 };
 
 // Add default base map layer to the map
-map.addLayer(Esri_WorldDarkGrayCanvas);
+map.addLayer(osmLayer);
 
 // Define style for the camp fire layer
 const campFireStyle = {
@@ -49,10 +48,10 @@ map.addLayer(campFireLayer);
 // Define the style for the house_1_10 layer using divIcon
 const house_1_10Style = feature => {
   return {
-    className: 'house-marker', // Custom class for styling
-    html: `<div class="marker-label">${feature.properties.label || ''}</div>`, // Label from feature properties
-    iconSize: [40, 40], // Size of the icon
-    iconAnchor: [20, 20], // Anchor point (center of the icon)
+    className: 'house-marker',
+    html: `<div class="marker-label">${feature.properties.label || ''}</div>`,
+    iconSize: [20, 20],
+    iconAnchor: [0, 0],
   };
 };
 
