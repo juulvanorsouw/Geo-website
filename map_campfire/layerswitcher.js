@@ -64,9 +64,21 @@ L.geoJSON(house_1_10, {
     return L.marker(latlng, { icon: L.divIcon(house_1_10Style(feature)) });
   }
 }).eachLayer(layer => {
+  // Add popup with detailed feature properties
+  const properties = layer.feature.properties;
+  const popupContent = `
+    <b>Damage:</b> ${properties.DAMAGE || 'No damage info'}<br>
+    <b>Structure Type:</b> ${properties.STRUCTURETYPE || 'No structure type'}
+  `;
+  
+  layer.bindPopup(popupContent);
+  
   markers.addLayer(layer);
 });
+
 map.addLayer(markers);
+
+
 
 // Define layer control options
 const layers = {
