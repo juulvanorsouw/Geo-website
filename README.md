@@ -20,3 +20,6 @@ Responsive Design: Adjusts to different screen sizes, with a collapsible sidebar
 Add more detailed data layers and integrate live data feeds into the map.
 Implement additional chart types to visualize new datasets.
 Improve the design and user experience with animations and transitions.
+
+## Link to website (in progress)
+https://juulvanorsouw.github.io/Geo-website/Camp_Fire.html
