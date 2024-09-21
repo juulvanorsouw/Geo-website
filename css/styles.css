@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: var(--background);
+    background: var(--background);
     color: var(--text-color-secondary);
   }
 
@@ -31,7 +31,7 @@ body {
     margin-top: 20px;
     margin-bottom: -20px;
     background-color: var(--dark-background);
-    color: var(--white);
+    color: var(----text-color-primary);
     text-align: center;
     padding: 1em 0;
     border-radius: 16px;
@@ -44,7 +44,7 @@ body {
 /* Header Styling */
 header {
   background-color: var(--dark-background);
-  color: var(--white);
+  color: var(--text-color-primary);
   padding: 20px;
   margin-bottom: 20px;
   position: relative;
@@ -56,5 +56,5 @@ header {
 header h3 {
   margin: 0;
   font-size: 24px;
-  color: var(--white);
+  color: var(--text-color-primary);
 }
