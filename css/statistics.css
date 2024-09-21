@@ -14,6 +14,7 @@
 .statistic-icon {
     font-size: 3rem;
     color: var(--accent-red);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .statistic-text {
@@ -30,4 +31,5 @@
     font-size: 18px;
     font-weight: bold;
     margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
