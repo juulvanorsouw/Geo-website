@@ -1,5 +1,8 @@
+/* :root */
+@import url('colors.css');
+
 .statistic-card:hover {
-    background-color: #202632;
+    background-color: var(--darker-background);
 }
 
 /* Statistic card when sidebar is closed */
@@ -10,7 +13,7 @@
 
 .statistic-icon {
     font-size: 3rem;
-    color: #ec0909;
+    color: var(--accent-red);
 }
 
 .statistic-text {
@@ -20,7 +23,7 @@
 .statistic-label {
     font-size: 14px;
     margin-bottom: 10px;
-    color: #b0b0b0;
+    color: var(--text-color-secondary);
 }
 
 .statistic-value {

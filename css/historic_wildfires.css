@@ -1,107 +1,71 @@
-.sqlcommentsbar {
-  background-color: #191c24;
-  color: #454f6f;
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 20px;
-}
+/* :root */
+@import url('colors.css');
 
-/* Styling */
+/* Style sql bar */
 .sqlcommentsbar {
-  background-color: #191c24;
-  color: #fff;
+  background-color: var(--dark-background);
+  color: var(--text-color-primary);
   padding: 20px;
   margin-bottom: 20px;
-  position: relative; 
-  text-align: center; 
+  position: relative;
+  text-align: center;
   border-radius: 16px;
 }
 
-/* Style for the Heading */
+
 .sqlcommentsbar h3 {
   margin: 0;
   font-size: 24px;
-  color: #fff;
+  color: var(--text-color-primary);
 }
 
 /* Map Section */
 .map-section {
-    width: 70%;
-    padding: 20px;
-    border-radius: 16px;
-    margin-right: 20px;
-    box-shadow: 0px 4px 10px #000000;
-    background-color: #191c24;
-    height: 1160px;
-  }
-  
-  .map-section h4 {
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  /* Map Styling */
-  #map {
-    width: 70%;
-    height: 600px;
-    border-radius: 16px;
-    box-shadow: 0px 4px 10px #000000;
-  }
-  
-  .charts-section h4 {
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  /* Canvas Styling */
-  canvas {
-    background-color: #000000;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px #000000;
-  }
-  
-  .chart-box {
-    padding: 20px;
-    background-color: #191c24;
-    border-radius: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-    margin-bottom: 20px;
-  }
-  
-  .chart-box p {
-    max-width: 900px;
-    margin: 0 auto;
-    word-wrap: break-word;
-    word-break: break-word;
-  }
-  
-    /* Main Content Area */
-  main {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      min-height: 100vh;
-      box-sizing: border-box;
-    }
+  width: 70%;
+  padding: 20px;
+  border-radius: 16px;
+  margin-right: 20px;
+  box-shadow: 0px 4px 10px var(--shadow-light);
+  background-color: var(--dark-background);
+  height: 1160px;
+}
 
-    /* Statistics Section Styling */
+.map-section h4 {
+  color: var(--text-color-primary);
+  margin-bottom: 10px;
+}
+
+#map {
+  width: 100%;
+  height: 600px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 10px var(--shadow-light);
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
 .statistics-section {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  width: 20%;
+  padding: 20px;
+  height: 1000px;
+  box-sizing: border-box;
 }
 
 .statistics-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 100px; /* Reduce gap for better spacing */
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* Default width with sidebar open */
 .statistic-card {
-  background-color: #191c24;
-  color: #fff;
+  background-color: var(--dark-background);
+  color: var(--text-color-primary);
   border-radius: 16px;
   padding: 20px;
   display: flex;
@@ -110,5 +74,5 @@
   width: 100%;
   max-width: 300px;
   transition: background-color 0.3s ease, max-width 0.3s ease;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 10px var(--shadow-light);
 }

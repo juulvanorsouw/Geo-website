@@ -1,45 +1,45 @@
-/* Map Section */
+/* :root */
+@import url('colors.css');
+
 .map-section {
   width: 70%;
   padding: 20px;
   border-radius: 16px;
   margin-right: 20px;
-  box-shadow: 0px 4px 10px #000000;
-  background-color: #191c24;
+  box-shadow: 0px 4px 10px var(--shadow-light);
+  background-color: var(--dark-background);
   height: 1160px;
 }
 
 .map-section h4 {
-  color: #fff;
+  color: var(--text-color-primary);
   margin-bottom: 10px;
 }
 
-/* Map Styling */
 #map {
   width: 70%;
   height: 600px;
   border-radius: 16px;
-  box-shadow: 0px 4px 10px #000000;
+  box-shadow: 0px 4px 10px var(--shadow-light);
 }
 
 .charts-section h4 {
-  color: #fff;
+  color: var(--text-color-primary);
   margin-bottom: 10px;
 }
 
-/* Canvas Styling */
 canvas {
-  background-color: #000000;
+  background-color: var(--black);
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0px 4px 10px #000000;
+  box-shadow: 0px 4px 10px var(--shadow-light);
 }
 
 .chart-box {
   padding: 20px;
-  background-color: #191c24;
+  background-color: var(--dark-background);
   border-radius: 16px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 10px var(--shadow-light);
   margin-bottom: 20px;
 }
 
@@ -50,16 +50,14 @@ canvas {
   word-break: break-word;
 }
 
-  /* Main Content Area */
 main {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    min-height: 100vh;
-    box-sizing: border-box;
-  }
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
 
-  /* Statistics Section Styling */
 .statistics-section {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -68,14 +66,13 @@ main {
 .statistics-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 100px; /* Reduce gap for better spacing */
+  gap: 100px;
   justify-content: center;
 }
 
-/* Default width with sidebar open */
 .statistic-card {
-  background-color: #191c24;
-  color: #fff;
+  background-color: var(--dark-background);
+  color: var(--text-color-primary);
   border-radius: 16px;
   padding: 20px;
   display: flex;
@@ -84,5 +81,5 @@ main {
   width: 100%;
   max-width: 300px;
   transition: background-color 0.3s ease, max-width 0.3s ease;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 10px var(--shadow-light);
 }
