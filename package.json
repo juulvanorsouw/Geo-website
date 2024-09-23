@@ -1,0 +1,15 @@
+{
+  "name": "geo-website",
+  "version": "1.0.0",
+  "description": "This is my first website project! It's a dashboard-style application that displays information using interactive maps and charts. The project is currently a work in progress, built with HTML, CSS, JavaScript, and libraries like Leaflet and Chart.js to visualize data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prettier": "^3.3.3"
+  }
+}
