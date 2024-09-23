@@ -36,22 +36,33 @@ new Chart("fireconiumainent", {
     ]
   },
   options: {
-    legend: {display: true},
+    legend: {
+      display: true,
+      labels: {
+        fontColor: "#FFFFFF"
+      }
+    },
     scales: {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 100
+          max: 100,
+          fontColor: "#FFFFFF"
         },
         scaleLabel: {
           display: true,
-          labelString: 'Percentage'
+          labelString: 'Percentage',
+          fontColor: "#FFFFFF"
         }
       }],
       xAxes: [{
+        ticks: {
+          fontColor: "#FFFFFF"
+        },
         scaleLabel: {
           display: true,
-          labelString: 'Dates in November'
+          labelString: 'Dates in November',
+          fontColor: "#FFFFFF"
         }
       }]
     }
