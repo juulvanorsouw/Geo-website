@@ -1,19 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebarToggler = document.querySelector('.sidebar-toggler');
-    const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.querySelector('.main-content');
-    
-    // Initially set the sidebar to be visible
-    sidebar.classList.remove('closed');
-    mainContent.classList.remove('expanded');
-    
-    sidebarToggler.addEventListener('click', function(event) {
-        event.preventDefault();
-        sidebar.classList.toggle('closed');
-        mainContent.classList.toggle('expanded');
-        
-        // Update aria-expanded attribute
-        const isExpanded = sidebar.classList.contains('closed');
-        sidebarToggler.setAttribute('aria-expanded', !isExpanded);
+// sidebar.js
+document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggler = document.getElementById('sidebarToggler');
+    let isOpen = false;  // Initially, the sidebar is closed.
+
+    sidebarToggler.addEventListener('click', function () {
+        if (isOpen) {
+            sidebar.classList.add('closed');  // Close the sidebar.
+        } else {
+            sidebar.classList.remove('closed');  // Open the sidebar.
+        }
+        isOpen = !isOpen;  // Toggle the state.
+
+        // Toggle the visibility of icon-only and text-only elements
+        const iconOnlyElements = document.querySelectorAll('.icon-only');
+        const textOnlyElements = document.querySelectorAll('.text-only');
+
+        iconOnlyElements.forEach(element => {
+            element.style.display = isOpen ? 'none' : 'inline';
+        });
+
+        textOnlyElements.forEach(element => {
+            element.style.display = isOpen ? 'inline' : 'none';
+        });
     });
 });
