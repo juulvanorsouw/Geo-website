@@ -1,59 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sjiek de friemel</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/output.css">
-    <link rel="stylesheet" href="css/about_page.css">
-    <link rel="stylesheet" href="css/statistics.css">
-    <link rel="stylesheet" href="css/mapelements.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
     <link rel="website icon" type="png" href="pictures/Wildfire.png">
 </head>
-<body>
-    <div class="wrapper">
+
+<body class="bg-black text-gray-400 font-sans">
+    <div class="flex h-screen">
         <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="pictures/logo.png" alt="Logo" height="60px">
+        <div class="bg-[#420c0c] w-64 py-6 px-4 rounded-xl text-gray-400 flex-shrink-0 relative">
+            <div class="flex justify-center mb-6">
+                <img src="pictures/logo.png" alt="Logo" class="h-16">
             </div>
-            <ul>
-                <li><a href="Current_Wildfires.html" ><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="Historic_Wildfires.html" ><i class="fas fa-map"></i> Index 2</a></li>
-                <li><a href="Camp_Fire.html" class="active"><i class="fas fa-info-circle"></i> Camp Fire (2018)</a></li>
-                <li><a href="about_page.html"><i class="fas fa-envelope"></i> Index 4</a></li>
+            <ul class="space-y-4">
+                <li><a href="Current_Wildfires.html" class="flex items-center space-x-2 text-lg hover:bg-black hover:text-white px-4 py-2 rounded-xl"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li><a href="Historic_Wildfires.html" class="flex items-center space-x-2 text-lg hover:bg-black hover:text-white px-4 py-2 rounded-xl"><i class="fas fa-map"></i><span>Index 2</span></a></li>
+                <li><a href="Camp_Fire.html" class="flex items-center space-x-2 text-lg bg-black text-white border border-red-700 px-4 py-2 rounded-r-full"><i class="fas fa-info-circle"></i><span>Camp Fire (2018)</span></a></li>
+                <li><a href="about_page.html" class="flex items-center space-x-2 text-lg hover:bg-black hover:text-white px-4 py-2 rounded-xl"><i class="fas fa-envelope"></i><span>Index 4</span></a></li>
             </ul>
         </div>
 
         <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- Sidebar Toggler Button -->
-
-
-            <header>
-                <h3>This website is still in progess</h3>
-                <a class="sidebar-toggler flex-shrink-0" aria-expanded="false">
-                    <i class="fa fa-bars"></i>
+        <div class="flex-1 p-8">
+            <header class="bg-red-900 text-white text-center py-6 rounded-xl relative">
+                <h3 class="text-2xl">This website is still in progress</h3>
+                <a class="absolute top-1/2 left-6 transform -translate-y-1/2 cursor-pointer">
+                    <i class="fas fa-bars text-2xl"></i>
                 </a>
-            </header> 
-            <footer>
+            </header>
+
+            <footer class="mt-8 bg-red-900 text-gray-100 text-center py-4 rounded-xl">
                 <p>This website is intended for educational purposes only and does not assume any responsibility for the accuracy or reliability of the data provided © 2024</p>
-            </footer>
+            </footer>            
         </div>
     </div>
+
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="./map_campfire/data/fireconiumainent.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-
     <script src="./JS/sidebar.js"></script>
-
 </body>
+
 </html>
