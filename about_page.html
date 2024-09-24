@@ -39,6 +39,24 @@
             transition: margin-left 0.5s ease-in-out;
         }
 
+        .sidebar-toggler {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #1f2937;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar-toggler:hover {
+            background-color: #374151;
+        }
     </style>
 </head>
 
@@ -61,7 +79,7 @@
                         <span class="ml-2 text-sm font-medium">Current Wildfires</span>
                     </a>
                 </div>
-            </div>            
+            </div>
             <div class="flex flex-col items-center mt-2 border-t border-gray-700">
                 <div class="icon-only">
                     <a class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="Historic_Wildfires.html">
@@ -75,7 +93,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="flex flex-col items-center mt-2 border-t border-gray-700">
                 <div class="icon-only">
                     <a class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 text-white" href="Camp_Fire.html">
@@ -89,7 +107,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="flex flex-col items-center mt-2 border-t border-gray-700">
                 <div class="icon-only">
                     <a class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="about_page.html">
@@ -105,28 +123,24 @@
             </div>
 
             <div class="flex h-screen">
-                <div class="w-64 bg-gray-900 flex items-center justify-center">
+                <div class="w-64 bg-gray-900 flex items-end justify-center">
                     <div class="icon-only">
-                        <a class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="about_page.html">
+                        <a class="flex items-center w-full px-5 py-2 transition-colors duration-200  gap-x-2 hover:bg-gray-700 focus:outline-none mt-2 border-t border-gray-700" href="about_page.html">
                             <img src="pictures/random_guy.png" alt="Random Guy" class="w-8 h-8">
                         </a>
                     </div>
                 </div>
-            </div>            
-                <div class="text-only hidden">
-                    <div class="flex items-center w-full px-5 py-2 transition-colors duration-200  gap-x-2 hover:bg-gray-700 focus:outline-none mt-2 border-t border-gray-700">
-                        <img class="object-cover w-8 h-8 rounded-full" src="pictures/random_guy.png" alt="Random Guy">
-                
-                        <div class="text-left rtl:text-right">
-                            <h1 class="text-sm font-medium capitalize text-white">Random per</h1>
-                            <p class="text-xs text-gray-400">Admin</p>
-                        </div>
+            </div>
+            <div class="text-only hidden">
+                <div class="flex items-center w-full px-5 py-2 transition-colors duration-200  gap-x-2 hover:bg-gray-700 focus:outline-none mt-2 border-t border-gray-700">
+                    <img class="object-cover w-8 h-8 rounded-full" src="pictures/random_guy.png" alt="Random Guy">
+
+                    <div class="text-left rtl:text-right">
+                        <h1 class="text-sm font-medium capitalize text-white">Random per</h1>
+                        <p class="text-xs text-gray-400">Admin</p>
                     </div>
                 </div>
-
-
-            <!-- Right-side bar attached to the sidebar -->
-            <div class="right-bar"></div>
+            </div>
         </div>
 
         <!-- Main Content Area -->
@@ -147,7 +161,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
-    <script src="js/sidebar.js"></script>
+    <script src="JS/sidebar.js"></script>
 </body>
 
 </html>
