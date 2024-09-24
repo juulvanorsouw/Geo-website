@@ -8,12 +8,36 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
-        #sidebar.closed .icon-only {
-            display: none;
+        #sidebar {
+            transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            width: 10rem;
         }
-        #sidebar.closed .icon-only + .text-only {
-            display: inline;
+
+        #sidebar.closed {
+            width: 4rem;
         }
+
+        #sidebar .text-only {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        #sidebar.closed .text-only {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        #sidebar .icon-only {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .flex-1 {
+            transition: margin-left 0.5s ease-in-out;
+            margin-left: 1rem;
+        }
+
     </style>
 </head>
 

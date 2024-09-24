@@ -1,8 +1,19 @@
-// sidebar.js
 document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.getElementById('sidebar');
     const sidebarToggler = document.getElementById('sidebarToggler');
-    let isOpen = false;  // Initially, the sidebar is closed.
+    let isOpen = false;  // Initially, the sidebar is closed with text-only elements visible.
+
+    // Initially hide icon-only elements and show text-only elements
+    const iconOnlyElements = document.querySelectorAll('.icon-only');
+    const textOnlyElements = document.querySelectorAll('.text-only');
+
+    iconOnlyElements.forEach(element => {
+        element.style.display = 'none';
+    });
+
+    textOnlyElements.forEach(element => {
+        element.style.display = 'inline';
+    });
 
     sidebarToggler.addEventListener('click', function () {
         if (isOpen) {
@@ -13,9 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
         isOpen = !isOpen;  // Toggle the state.
 
         // Toggle the visibility of icon-only and text-only elements
-        const iconOnlyElements = document.querySelectorAll('.icon-only');
-        const textOnlyElements = document.querySelectorAll('.text-only');
-
         iconOnlyElements.forEach(element => {
             element.style.display = isOpen ? 'none' : 'inline';
         });
