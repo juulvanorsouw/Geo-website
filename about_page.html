@@ -11,6 +11,8 @@
         #sidebar {
             transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
             width: 10rem;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
         }
 
         #sidebar.closed {
@@ -35,7 +37,6 @@
 
         .flex-1 {
             transition: margin-left 0.5s ease-in-out;
-            margin-left: 1rem;
         }
 
     </style>
@@ -116,11 +117,13 @@
                     </a>
                 </div>
             </a>
-            
+
+            <!-- Right-side bar attached to the sidebar -->
+            <div class="right-bar"></div>
         </div>
 
         <!-- Main Content Area -->
-        <div class="flex-1 p-8">
+        <div class="flex-1 p-8 relative">
             <header class="bg-gray-900 text-white text-center py-6 rounded-xl relative">
                 <h3 class="text-2xl">This website is still in progress</h3>
                 <!-- Hamburger Icon -->
