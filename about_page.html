@@ -127,21 +127,33 @@
 
         <!-- Main Content Area -->
         <div class="flex-1 p-8 relative">
-            <header class="bg-gray-900 text-white text-center py-6 rounded-xl relative">
+
+            <header class="bg-gray-900 text-white text-center shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 relative flex items-center justify-center">
                 <h3 class="text-2xl">This website is still in progress</h3>
                 <!-- Hamburger Icon -->
                 <button id="sidebarToggler" class="absolute top-1/2 left-6 transform -translate-y-1/2 cursor-pointer">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </header>
+               <!-- Some padding -->
+            <div class="h-4"></div>
 
-            <footer class="bg-gray-900 md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-4">
+            <footer class="bg-gray-900 md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 flex items-center justify-center">
                 <ul class="flex items-center flex-wrap mb-6 md:mb-0">
-                    <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Terms and conditions</a>
-                    </li>
+                    <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Terms and conditions</a></li>
                     <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Privacy Policy</a></li>
                 </ul>
-                
+        
+                <div class="flex sm:justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/juulvanorsouw/" aria-label="LinkedIn" data-social="linkedin" class="text-gray-500 hover:text-gray-300">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/JuulvanOrsouw" aria-label="GitHub" data-social="github" class="text-gray-500 hover:text-gray-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </footer>
+
         </div>
     </div>
 
