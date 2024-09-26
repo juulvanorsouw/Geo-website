@@ -7,7 +7,13 @@
     <title>Sjiek de friemel</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="website icon" type="png" href="pictures/Wildfire.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="css/main_campfire.css">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/mapelements.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
     <style>
         #sidebar {
             transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
@@ -173,7 +179,43 @@
                 </div>
               </div>
             
-            
+              <main class="flex justify-between p-5 min-h-screen box-border">
+                <div class="map-section w-7/12 p-5 rounded-lg shadow-lg bg-gray-900 h-[1100px] mr-5">
+                    <h4 class="text-white mb-2">Impact of the Camp Fire</h4>
+                    <p class="text-gray-300">
+                        The Camp Fire, one of the most catastrophic wildfires in California's history, had a profound impact on the region. The map illustrates the extensive damage caused by the fire, including the areas affected and the varying levels of destruction to structures. It provides a clear visual of how the fire's intensity varied across different neighborhoods, highlighting the severity of the damage in each area. This map helps in understanding the full scale of the disaster and the challenges faced during recovery efforts.
+                    </p>
+                    <!-- Map Container -->
+                    <div id="map" class=" w-full mt-4 mb-4 rounded-lg shadow-lg"></div>
+                    <p class="text-gray-300">
+                        The Camp Fire, which began on November 8, 2018, had a devastating effect on Northern California. It swept through multiple communities, including Paradise, Concow, and Magalia, destroying thousands of homes and structures. The fire's intensity varied across different regions, leading to varying levels of damage and loss. This overview provides a snapshot of the fire's extensive impact and the challenges faced during the recovery and rebuilding efforts.
+                    </p>
+                </div>
+                <div class="charts-section w-5/12">
+                    <div class="chart-box p-5 bg-gray-900 rounded-lg shadow-lg mb-5">
+                        <h4 class="text-white mb-2">A Rapidly Expanding Inferno and Its Containment</h4>
+                        <p class="text-gray-300">
+                            The Camp Fire, ignited on November 8, 2018, swiftly became California's most destructive wildfire, destroying 18,793 structures. By November 15, over 5,500 firefighters and extensive resources were deployed as the fire spread to 146,000 acres. Rainfall on November 21 significantly aided containment, which reached 85 percent. By November 25, the fire was fully contained after 17 days of intense firefighting efforts.
+                        </p>
+                        <canvas id="fireconiumainent" class="w-full h-[300px] max-w-[600px] mt-4 bg-gray-700 rounded-lg p-5 shadow-lg"></canvas>
+                    </div>
+                    <div class="chart-box p-5 bg-gray-900 rounded-lg shadow-lg mb-5">
+                        <h4 class="text-white mb-2">Environmental Impacts</h4>
+                        <p class="text-gray-300">
+                            The Camp Fire caused severe air pollution affecting the San Francisco Bay Area and Central Valley, leading to school closures and hazy conditions reaching as far as New York City. Recovery efforts were hampered by the need to test burned debris for hazardous materials, with advisories issued against re-habitation due to health risks. Contaminated drinking water systems posed significant challenges, prompting educational efforts and workshops to address post-wildfire public health issues.
+                        </p>
+                        <div class="image-container relative w-full max-w-[800px] h-[400px] overflow-hidden border-4 border-transparent rounded-lg mt-2">
+                            <img src="pictures/bay_bridge.jpg" alt="Bay Bridge Before and After the Camp Fire" class="w-full h-full object-cover">
+                            <div class="overlay absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white flex justify-center items-center opacity-0 transition-opacity duration-500 ease-in-out">
+                                <div class="text-box p-5 rounded-lg text-center max-w-[80%] mx-auto border-3 border-black">
+                                    <h5 class="m-0 text-lg">The Bay Bridge in San Francisco, California.</h5>
+                                    <p class="text-sm mt-2">The photo on the right was taken on October 14, 2018, before the Camp Fire, and the one on the left on November 16, 2018, during the fire.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>          
   
 <footer class="bg-gray-900 md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 flex items-center justify-center">
     <ul class="flex items-center flex-wrap mb-6 md:mb-0">
@@ -196,9 +238,17 @@
     </div>
              
 </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
-    <script src="JS/sidebar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+<script type="module" src="./map_campfire/map.js"></script>
+<script type="module" src="./map_campfire/layerswitcher.js"></script>
+<script type="module" src="./map_campfire/homebutton.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="./map_campfire/data/fireconiumainent.js"></script>
+<script src="./JS/sidebar.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </body>
 
 </html>
