@@ -1,136 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camp Fire (2018)</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/main_campfire.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/statistics.css">
-    <link rel="stylesheet" href="css/output.css">
-    <link rel="stylesheet" href="css/mapelements.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
+    <title>Sjiek de friemel</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="website icon" type="png" href="pictures/Wildfire.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        #sidebar {
+            transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            width: 10rem;
+            border-radius: 0 28px 28px 0;
+        }
+
+        #sidebar.closed {
+            width: 4rem;
+        }
+
+        #sidebar .text-only {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        #sidebar.closed .text-only {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        #sidebar .icon-only {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .flex-1 {
+            transition: margin-left 0.5s ease-in-out;
+        }
+
+    </style>
 </head>
-<body>
-    <div class="wrapper">
+
+<body class="bg-black text-gray-400 font-sans">
+    <div class="flex h-screen">
         <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="pictures/logo.png" alt="Logo" height="60px">
+        <div id="sidebar" class="flex flex-col items-center w-45 h-full overflow-hidden text-gray-400 bg-gray-900 rounded transform">
+            <a class="flex items-center justify-center mt-3" href="#">
+                <img src="pictures/logo.png" alt="Logo" class="h-12 w-24" />
+            </a>
+                <div class="flex flex-col items-center w-full mt-2 border-t border-gray-700">
+                    <div class="icon-only">
+                        <a class="flex items-center justify-center w-full h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="Current_Wildfires.html">
+                            <i class="fas fa-fire text-white"></i>
+                        </a>
+                    </div>
+                <div class="text-only hidden">
+                    <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="Current_Wildfires.html">
+                        <i class="fas fa-fire text-white"></i>
+                        <span class="ml-2 text-sm font-medium">Current Wildfires</span>
+                    </a>
+                </div>
             </div>
-            <ul>
-                <li><a href="Current_Wildfires.html" ><i class="fas fa-home"></i> Current Wilfdfires</a></li>
-                <li><a href="Historic_Wildfires.html" ><i class="fas fa-map"></i> Historic Wildfires</a></li>
-                <li><a href="Camp_Fire.html" class="active"><i class="fas fa-info-circle"></i> Camp Fire (2018)</a></li>
-                <li><a href="about_page.html"><i class="fas fa-envelope"></i> Index 4</a></li>
-            </ul>
+            <div class="flex flex-col items-center w-full mt-2 border-t border-gray-700">
+                <div class="icon-only">
+                    <a class="flex items-center justify-center w-full h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="Historic_Wildfires.html">
+                        <i class="fas fa-archive text-white"></i>
+                    </a>
+                </div>
+                <div class="text-only hidden">
+                    <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="Historic_Wildfires.html">
+                        <i class="fas fa-archive w-6 h-6  text-white"></i>
+                        <span class="ml-2 text-sm font-medium">Historic Wildfires</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center w-full mt-2 border-t border-gray-700">
+                <div class="icon-only">
+                    <a class="flex items-center justify-center w-full h-12 mt-2 rounded hover:bg-gray-700 text-white" href="Camp_Fire.html">
+                        <i class="fas fa-dollar-sign w-6 h-6"></i>
+                    </a>
+                </div>
+                <div class="text-only hidden">
+                    <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700" href="Camp_Fire.html">
+                        <i class="fas fa-dollar-sign w-6 h-6  text-white"></i>
+                        <span class="ml-2 text-sm font-medium">Camp Fire (2018)</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center w-full mt-2 border-t border-gray-700">
+                <div class="icon-only">
+                    <a class="flex items-center justify-center w-full h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="about_page.html">
+                        <i class="fas fa-info-circle w-6 h-6 text-white"></i>
+                    </a>
+                </div>
+                <div class="text-only hidden">
+                    <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="about_page.html">
+                        <i class="fas fa-info-circle w-6 h-6 text-white"></i>
+                        <span class="ml-2 text-sm font-medium">About Page</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex h-screen">
+                <div class="w-64 bg-gray-900 flex items-end justify-center">
+                    <div class="icon-only">
+                        <a class="flex items-center w-full px-5 py-2 transition-colors duration-200  gap-x-2 hover:bg-gray-700 focus:outline-none mt-2 border-t border-gray-700" href="about_page.html">
+                            <img src="pictures/random_guy.png" alt="Random Guy" class="w-8 h-8">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-only hidden">
+                <div class="flex items-center w-full px-5 py-2 transition-colors duration-200  gap-x-2 hover:bg-gray-700 focus:outline-none mt-2 border-t border-gray-700">
+                    <img class="object-cover w-8 h-8 rounded-full" src="pictures/random_guy.png" alt="Random Guy">
+
+                    <div class="text-left rtl:text-right">
+                        <h1 class="text-sm font-medium capitalize text-white">Random per</h1>
+                        <p class="text-xs text-gray-400">Admin</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- Sidebar Toggler Button -->
+        <div class="flex-1 p-8 relative">
 
-
-            <header>
-                <h3>Camp Fire (2018)</h3>
-                <a class="sidebar-toggler flex-shrink-0" aria-expanded="false">
-                    <i class="fa fa-bars"></i>
-                </a>
+            <header class="bg-gray-900 text-white text-center shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 relative flex items-center justify-center">
+                <h3 class="text-2xl">This website is still in progress</h3>
+                <!-- Hamburger Icon -->
+                <button id="sidebarToggler" class="absolute top-1/2 left-6 transform -translate-y-1/2 cursor-pointer">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </header>
+               <!-- Some padding -->
+            <div class="h-4"></div>
+            <div class="py-5">
 
-            <!-- Top 4 statistics -->
-            <div class="statistics-section">
-                <div class="statistics-row">
-                    <div class="statistic-card">
-                        <i class="fas fa-skull-crossbones statistic-icon"></i>
-                        <div class="statistic-text">
-                            <p class="statistic-label">Fatalities</p>
-                            <h6 class="statistic-value">85</h6>
-                        </div>
-                    </div>
-                    <div class="statistic-card">
-                        <i class="fas fa-fire statistic-icon"></i>
-                        <div class="statistic-text">
-                            <p class="statistic-label">Acres burned down</p>
-                            <h6 class="statistic-value">153,336</h6>
-                        </div>
-                    </div>
-                    <div class="statistic-card">
-                        <i class="fas fa-home statistic-icon"></i>
-                        <div class="statistic-text">
-                            <p class="statistic-label">Structures destroyed</p>
-                            <h6 class="statistic-value">18,804</h6>
-                        </div>
-                    </div>
-                    <div class="statistic-card">
-                        <i class="fas fa-dollar-sign statistic-icon"></i>
-                        <div class="statistic-text">
-                            <p class="statistic-label">Estimated damage</p>
-                            <h6 class="statistic-value">$16.5 billion</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Top 4 statistics -->
 
-            <main>
-                <div class="map-section">
-                    <h4>Impact of the Camp Fire</h4>
-                    <p>
-                        The Camp Fire, one of the most catastrophic wildfires in California's history, had a profound impact on the region. The map illustrates the extensive damage caused by the fire, including the areas affected and the varying levels of destruction to structures. It provides a clear visual of how the fire's intensity varied across different neighborhoods, highlighting the severity of the damage in each area. This map helps in understanding the full scale of the disaster and the challenges faced during recovery efforts.
-                    </p> 
-                    <!-- Map Container -->
-                    <div id="map" style="height: 700px; width: 100%;margin-top: 15px; margin-bottom: 15px;"></div>
-                    <p>
-                        The Camp Fire, which began on November 8, 2018, had a devastating effect on Northern California. It swept through multiple communities, including Paradise, Concow, and Magalia, destroying thousands of homes and structures. The fire's intensity varied across different regions, leading to varying levels of damage and loss. This overview provides a snapshot of the fire's extensive impact and the challenges faced during the recovery and rebuilding efforts.
-                    </p> 
-                </div>
-                <div class="charts-section">
-                    <div class="chart-box">
-                        <h4>A Rapidly Expanding Inferno and Its Containment</h4>
-                        <p>
-                            The Camp Fire, ignited on November 8, 2018, swiftly became California's most destructive wildfire, destroying 18,793 structures. By November 15, over 5,500 firefighters and extensive resources were deployed as the fire spread to 146,000 acres. Rainfall on November 21 significantly aided containment, which reached 85 percent. By November 25, the fire was fully contained after 17 days of intense firefighting efforts.
-                        </p>   
-                        <canvas id="fireconiumainent" style="width:100%;height: 300;max-width:600px; margin-top: 15px;"></canvas>
+               <!-- Statistics -->  
+                <div class="flex flex-wrap justify-center gap-24">
+                  <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full max-w-xs shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+                    <i class="fas fa-skull-crossbones text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+                    <div class="ml-4">
+                      <p class="text-sm mb-2 text-text-color-secondary">Fatalities</p>
+                      <h6 class="text-lg font-bold drop-shadow-md text-white">85</h6>
                     </div>
-                    <div class="chart-box">
-                        <h4>Environmental Impacts</h4>
-                        <p>
-                            The Camp Fire caused severe air pollution affecting the San Francisco Bay Area and Central Valley, leading to school closures and hazy conditions reaching as far as New York City. Recovery efforts were hampered by the need to test burned debris for hazardous materials, with advisories issued against re-habitation due to health risks. Contaminated drinking water systems posed significant challenges, prompting educational efforts and workshops to address post-wildfire public health issues.
-                        </p>    
-                        <div class="image-container">
-                            <img src="pictures/bay_bridge.jpg" alt="Bay Bridge Before and After the Camp Fire" style="width:100%; max-width:800px; height:400px;">
-                            <div class="overlay">
-                                <div class="text-box">
-                                    <h5>The Bay Bridge in San Francisco, California.</h5>
-                                    <p>The photo on the right was taken on October 14, 2018, before the Camp Fire, and the one on the left on November 16, 2018, during the fire.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>           
+                  </div>
+                  <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full max-w-xs shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+                    <i class="fas fa-fire text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+                    <div class="ml-4">
+                      <p class="text-sm mb-2 text-text-color-secondary">Acres burned down</p>
+                      <h6 class="text-lg font-bold drop-shadow-md text-white">153,336</h6>
+                    </div>
+                  </div>
+                  <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full max-w-xs shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+                    <i class="fas fa-home text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+                    <div class="ml-4">
+                      <p class="text-sm mb-2 text-text-color-secondary">Structures destroyed</p>
+                      <h6 class="text-lg font-bold drop-shadow-md text-white">18,804</h6>
+                    </div>
+                  </div>
+                  <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full max-w-xs shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+                    <i class="fas fa-dollar-sign text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+                    <div class="ml-4">
+                      <p class="text-sm mb-2 text-text-color-secondary">Estimated damage</p>
+                      <h6 class="text-lg font-bold drop-shadow-md text-white">$16.5 billion</h6>
+                    </div>
+                  </div>
                 </div>
-            </main>
+              </div>
             
-            <footer>
-                <p>This website is intended for educational purposes only and does not assume any responsibility for the accuracy or reliability of the data provided © 2024</p>
-            </footer>
-        </div>
+            
+  
+<footer class="bg-gray-900 md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 flex items-center justify-center">
+    <ul class="flex items-center flex-wrap mb-6 md:mb-0">
+        <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Terms and conditions</a></li>
+        <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Privacy Policy</a></li>
+    </ul>
+
+    <div class="flex sm:justify-center space-x-6">
+        <a href="https://www.linkedin.com/in/juulvanorsouw/" aria-label="LinkedIn" data-social="linkedin" class="text-gray-500 hover:text-white">
+            <span class="border-2 border-gray-500 text-gray-500 rounded-full p-2 flex items-center justify-center w-10 h-10 hover:bg-blue-900 hover:text-white transition-colors duration-200">
+                <i class="fab fa-linkedin"></i>
+            </span>
+        </a>
+        
+        <a href="https://github.com/JuulvanOrsouw" aria-label="GitHub" data-social="github" class="text-gray-500 hover:text-white">
+            <span class="border-2 border-gray-500 text-gray-500 rounded-full p-2 flex items-center justify-center w-10 h-10 hover:bg-black hover:text-white transition-colors duration-200">
+                <i class="fab fa-github"></i>
+            </span>
+        </a>
     </div>
-
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="./map_campfire/data/fireconiumainent.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-    <!--Own JS files -->
-    <script type="module" src="./map_campfire/map.js"></script>
-    <script type="module" src="./map_campfire/layerswitcher.js"></script>
-    <script type="module" src="./map_campfire/homebutton.js"></script>
-    <script src="./JS/sidebar.js"></script>
-
+             
+</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+    <script src="JS/sidebar.js"></script>
 </body>
+
 </html>
