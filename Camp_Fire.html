@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sjiek de friemel</title>
+    <title>Camp Fire (2018)</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="website icon" type="png" href="pictures/Wildfire.png">
-    <link rel="stylesheet" href="css/main_campfire.css">
     <link rel="stylesheet" href="css/output.css">
     <link rel="stylesheet" href="css/mapelements.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -45,6 +44,55 @@
             transition: margin-left 0.5s ease-in-out;
         }
 
+        #map {
+        width: 100%;
+        height: 600px;
+        border-radius: 16px;
+        }
+
+        .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        }
+
+        .image-container:hover .overlay {
+        opacity: 1;
+        }
+
+        .text-box {
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 80%;
+        margin: auto;
+        border: 3px solid #000000;
+        }
+
+        .text-box h5 {
+        margin: 0;
+        font-size: 20px;
+        }
+
+        .text-box p {
+        font-size: 14px;
+        margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -131,20 +179,18 @@
             </div>
         </div>
 
-        <!-- Main Content Area -->
-        <div class="flex-1 p-8 relative">
+    <!-- Main Content Area -->
+    <div class="flex-1 p-8 ">
 
-            <header class="bg-gray-900 text-white text-center shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 relative flex items-center justify-center">
-                <h3 class="text-2xl">This website is still in progress</h3>
-                <!-- Hamburger Icon -->
-                <button id="sidebarToggler" class="absolute top-1/2 left-6 transform -translate-y-1/2 cursor-pointer">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </header>
-               <!-- Some padding -->
-            <div class="h-4"></div>
-            <div class="py-5">
-
+        <header class="bg-gray-900 text-white text-center shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 relative flex items-center justify-center">
+            <h3 class="text-2xl"><b>Camp Fire (2018)</b></h3>
+            <!-- Hamburger Icon -->
+            <button id="sidebarToggler" class="absolute top-1/2 left-6 transform -translate-y-1/2 cursor-pointer">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </header>
+    <!-- Some padding -->
+        <div class="py-5">
 
                <!-- Statistics -->  
                 <div class="flex flex-wrap justify-center gap-24">
@@ -179,7 +225,7 @@
                 </div>
               </div>
             
-              <main class="flex justify-between p-5 min-h-screen box-border">
+              <main class="flex justify-between  min-h-screen box-border">
                 <div class="map-section w-7/12 p-5 rounded-lg shadow-lg bg-gray-900 h-[1100px] mr-5">
                     <h4 class="text-white mb-2">Impact of the Camp Fire</h4>
                     <p class="text-gray-300">
@@ -217,6 +263,8 @@
                 </div>
             </main>          
   
+    <div class="h-4"></div>
+            
 <footer class="bg-gray-900 md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 flex items-center justify-center">
     <ul class="flex items-center flex-wrap mb-6 md:mb-0">
         <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Terms and conditions</a></li>
