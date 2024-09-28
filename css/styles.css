@@ -1,60 +1,46 @@
-/* :root */
-@import url('colors.css');
-
-/* General Body Styling */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: var(--background);
-    color: var(--text-color-secondary);
-  }
-
-  /* Main Content Styling */
-.main-content {
-    margin-left: 250px;
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  header {
-    background-color: var(--dark-background);
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-
-  footer {
-    margin-top: 20px;
-    margin-bottom: -20px;
-    background-color: var(--dark-background);
-    color: var(----text-color-primary);
-    text-align: center;
-    padding: 1em 0;
-    border-radius: 16px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#sidebar {
+  transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  width: 10rem;
+  border-radius: 0 28px 28px 0;
 }
 
-/* Header Styling */
-header {
-  background-color: var(--dark-background);
-  color: var(--text-color-primary);
-  padding: 20px;
-  margin-bottom: 20px;
-  position: relative;
-  text-align: center;
-  border-radius: 16px;
+#sidebar.closed {
+  width: 4rem;
 }
 
-/* Style for the Heading */
-header h3 {
-  margin: 0;
-  font-size: 24px;
-  color: var(--text-color-primary);
+#sidebar .text-only {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#sidebar.closed .text-only {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+#sidebar .icon-only {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.flex-1 {
+  transition: margin-left 0.5s ease-in-out;
+}
+
+.main-open {
+  margin-left: 9rem;
+}
+
+.main-closed {
+  margin-left: 3rem;
+}
+
+.bottom-left-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
