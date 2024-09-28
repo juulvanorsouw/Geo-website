@@ -9,52 +9,59 @@
     <link rel="website icon" type="png" href="pictures/Wildfire.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
-        #sidebar {
-            transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
-            width: 10rem;
-            border-radius: 0 28px 28px 0;
-        }
+#sidebar {
+    transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    width: 10rem;
+    border-radius: 0 28px 28px 0;
+}
 
-        #sidebar.closed {
-            width: 4rem;
-        }
+#sidebar.closed {
+    width: 4rem;
+}
 
-        #sidebar .text-only {
-            opacity: 1;
-            transform: translateX(0);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
+#sidebar .text-only {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
 
-        #sidebar.closed .text-only {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
+#sidebar.closed .text-only {
+    opacity: 0;
+    transform: translateX(-100%);
+}
 
-        #sidebar .icon-only {
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-        }
+#sidebar .icon-only {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
 
-        .flex-1 {
-            transition: margin-left 0.5s ease-in-out;
-        }
+.flex-1 {
+    transition: margin-left 0.5s ease-in-out;
+}
 
+.main-open {
+    margin-left: 9rem;
+}
+
+.main-closed {
+    margin-left: 3rem;
+}
     </style>
 </head>
 
 <body class="bg-black text-gray-400 font-sans">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <div id="sidebar" class="flex flex-col items-center w-45 h-full overflow-hidden text-gray-400 bg-gray-900 rounded transform">
+        <div id="sidebar" class="fixed flex-col items-center w-45 h-full overflow-hidden text-gray-400 bg-gray-900 rounded transform">
             <a class="flex items-center justify-center mt-3" href="#">
                 <img src="pictures/logo.png" alt="Logo" class="h-12 w-24" />
             </a>
-                <div class="flex flex-col items-center w-full mt-2 border-t border-gray-700">
-                    <div class="icon-only">
-                        <a class="flex items-center justify-center w-full h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="Current_Wildfires.html">
-                            <i class="fas fa-fire text-white"></i>
-                        </a>
-                    </div>
+            <div class="flex flex-col items-center w-full mt-2 border-t border-gray-700">
+                <div class="icon-only">
+                    <a class="flex items-center justify-center w-full h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="Current_Wildfires.html">
+                        <i class="fas fa-fire text-white"></i>
+                    </a>
+                </div>
                 <div class="text-only hidden">
                     <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="Current_Wildfires.html">
                         <i class="fas fa-fire text-white"></i>
@@ -127,7 +134,6 @@
 
         <!-- Main Content Area -->
         <div class="flex-1 p-8 relative">
-
             <header class="bg-gray-900 text-white text-center shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 relative flex items-center justify-center">
                 <h3 class="text-2xl">This website is still in progress</h3>
                 <!-- Hamburger Icon -->
@@ -135,31 +141,32 @@
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </header>
-               <!-- Some padding -->
-            <div class="h-4"></div>
+            <!-- Some padding -->
+            <div class="h-52"></div>
+            <div class="h-52"></div>
+            <div class="h-52"></div>
 
+            <div class="h-52"></div>
             <footer class="bg-gray-900 md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 flex items-center justify-center">
                 <ul class="flex items-center flex-wrap mb-6 md:mb-0">
                     <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Terms and conditions</a></li>
                     <li><a href="#" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Privacy Policy</a></li>
                 </ul>
-        
+
                 <div class="flex sm:justify-center space-x-6">
                     <a href="https://www.linkedin.com/in/juulvanorsouw/" aria-label="LinkedIn" data-social="linkedin" class="text-gray-500 hover:text-white">
                         <span class="border-2 border-gray-500 text-gray-500 rounded-full p-2 flex items-center justify-center w-10 h-10 hover:bg-blue-900 hover:text-white transition-colors duration-200">
                             <i class="fab fa-linkedin"></i>
                         </span>
                     </a>
-                    
+
                     <a href="https://github.com/JuulvanOrsouw" aria-label="GitHub" data-social="github" class="text-gray-500 hover:text-white">
                         <span class="border-2 border-gray-500 text-gray-500 rounded-full p-2 flex items-center justify-center w-10 h-10 hover:bg-black hover:text-white transition-colors duration-200">
                             <i class="fab fa-github"></i>
                         </span>
                     </a>
                 </div>
-                         
             </footer>
-
         </div>
     </div>
 
