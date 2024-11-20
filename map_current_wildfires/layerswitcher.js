@@ -11,6 +11,13 @@ let current_wilfdire = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wild
 
 });
 
+let wildfire_risk = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wms', {
+  layers: 'NRI_Risk_rating',
+  format: 'image/png',
+  transparent: true,
+
+});
+
 // Define base map layers
 const osmLayer = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -44,7 +51,8 @@ map.addLayer(current_wilfdire);
 
 // Define layer control options
 const layers = {
-  "House 1-10": current_wilfdire,
+  "Current Wildfires": current_wilfdire,
+  "Wildfire risk": wildfire_risk,
 };
 
 // Create and add base map switcher control to the map
