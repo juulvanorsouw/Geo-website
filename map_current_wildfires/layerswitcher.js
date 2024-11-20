@@ -3,6 +3,14 @@
 import { map } from "./map.js"
 
 
+// Define map layers
+let current_wilfdire = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wms', {
+  layers: 'current_wilfdire',
+  format: 'image/png',
+  transparent: true,
+
+});
+
 // Define base map layers
 const osmLayer = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -32,7 +40,13 @@ const basemaps = {
 
 // Add default base map layer to the map
 map.addLayer(Esri_WorldDarkGrayCanvas);
+map.addLayer(current_wilfdire);
+
+// Define layer control options
+const layers = {
+  "House 1-10": current_wilfdire,
+};
 
 // Create and add base map switcher control to the map
-const lagenSwitcher = new L.Control.Layers(basemaps);
+const lagenSwitcher = new L.Control.Layers(basemaps, layers);
 map.addControl(lagenSwitcher);
