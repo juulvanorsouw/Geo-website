@@ -129,8 +129,8 @@
                     <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
                         <i class="fas fa-dollar-sign text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
                         <div class="ml-4">
-                            <p class="text-sm mb-2 text-text-color-secondary">Estimated damage</p>
-                            <h6 class="text-lg font-bold drop-shadow-md text-white">$16.5 billion</h6>
+                            <p class="text-sm mb-2 text-text-color-secondary">Current Wildfires</p>
+                            <h6 id="totalWildfires" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
                         </div>
                     </div>
 
@@ -198,8 +198,18 @@
     <script type="module" src="./map_current_wildfires/map.js"></script>
     <script type="module" src="./map_current_wildfires/layerswitcher.js"></script>
     <script type="module" src="./map_current_wildfires/homebutton.js"></script>
+    <script type="module" src="./map_current_wildfires/infocurrentwilfdire.js"></script>
     <script src="./JS/sidebar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script type="module">
+        console.log('Ewa');
+        import fetchWildfireData from './map_current_wildfires/infocurrentwilfdire.js';
+
+        window.onload = function() {
+            fetchWildfireData();
+        };
+        console.log('Total Wildfires:', totalWildfires);
+    </script>
 </body>
 
 </html>
