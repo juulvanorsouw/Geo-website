@@ -1,21 +1,16 @@
-// layerswitcher.js
-
-import { map } from "./map.js"
-
+import { map } from "./map.js";
 
 // Define map layers
-let current_wilfdire = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wms', {
+let current_wilfdire = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wfs', {
   layers: 'current_wilfdire',
   format: 'image/png',
   transparent: true,
-
 });
 
-let wildfire_risk = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wms', {
+let wildfire_risk = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wfs', {
   layers: 'NRI_Risk_rating',
   format: 'image/png',
   transparent: true,
-
 });
 
 // Define base map layers
