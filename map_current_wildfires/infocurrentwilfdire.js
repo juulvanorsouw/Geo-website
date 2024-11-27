@@ -31,6 +31,10 @@ async function fetchWildfireData() {
             totalAcresBurned += acres;
             totalFatalities += fatalities;
         });
+        
+        // Round totalAcresBurned to the nearest integer
+        totalAcresBurned = Math.round(totalAcresBurned);
+
 
         // Log results
         console.log('Total Wildfires:', totalWildfires);
