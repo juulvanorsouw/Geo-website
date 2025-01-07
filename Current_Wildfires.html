@@ -104,56 +104,65 @@
                 <h3 class="text-2xl">SQL Bar</h3>
             </div>
 
-            <!-- Main Section with Map and Statistics -->
-            <div class="flex-1 flex justify-between p-5">
-                <!-- Map Section -->
-                <div class="w-7/12 bg-gray-900 p-5 rounded-lg shadow-lg h-[1100px]">
-                    <div id="map" class="w-full mt-4 mb-4 rounded-lg shadow-lg"></div>
-                </div>
+<!-- Main Section with Map and Statistics -->
+<div class="flex-1 flex justify-between p-5">
+    <!-- Map Section -->
+    <div class="w-8/12 bg-gray-900 p-5 rounded-lg shadow-lg h-[1100px] mr-4">
+        <div id="map" class="w-full mt-4 mb-4 rounded-lg shadow-lg"></div>
+    </div>
 
-                <!-- Statistics Section -->
-                <div class="w-4/12 flex flex-col gap-4">
-                    <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
-                        <i class="fas fa-dollar-sign text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
-                        <div class="ml-4">
-                            <p class="text-sm mb-2 text-text-color-secondary">Current Wildfires</p>
-                            <h6 id="totalWildfires" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
-                        <i class="fas fa-home text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
-                        <div class="ml-4">
-                            <p class="text-sm mb-2 text-text-color-secondary">Total Personal Incidents</p>
-                            <h6 id="totalIncidentPersonnel" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
-                        <i class="fas fa-fire text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
-                        <div class="ml-4">
-                            <p class="text-sm mb-2 text-text-color-secondary">Acres burned</p>
-                            <h6 id="totalAcresBurned" class="text-lg font-bold drop-shadow-md text-white">0</h6>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
-                        <i class="fas fa-calendar-day text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
-                        <div class="ml-4">
-                            <p class="text-sm mb-2 text-text-color-secondary">Recidences Destroyed</p>
-                            <h6 id="totalResidencesDestroyed" class="text-lg font-bold drop-shadow-md text-white">0</h6>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
-                        <i class="fas fa-user-times text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
-                        <div class="ml-4">
-                            <p class="text-sm mb-2 text-text-color-secondary">Fatalities</p>
-                            <h6 id="totalFatalities" class="text-lg font-bold drop-shadow-md text-white">0</h6>   
-                        </div>
-                    </div>
-                </div>
+    <!-- Statistics Section -->
+    <div class="w-4/12 flex flex-col gap-4 h-[1100px]">
+        <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+            <i class="fas fa-dollar-sign text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+            <div class="ml-4">
+                <p class="text-sm mb-2 text-text-color-secondary">Current Wildfires</p>
+                <h6 id="totalWildfires" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
             </div>
+        </div>
+        
+        <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+            <i class="fas fa-home text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+            <div class="ml-4">
+                <p class="text-sm mb-2 text-text-color-secondary">Total Personal Incidents</p>
+                <h6 id="totalIncidentPersonnel" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
+            </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+            <i class="fas fa-fire text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+            <div class="ml-4">
+                <p class="text-sm mb-2 text-text-color-secondary">Acres burned</p>
+                <h6 id="totalAcresBurned" class="text-lg font-bold drop-shadow-md text-white">0</h6>
+            </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+            <i class="fas fa-calendar-day text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+            <div class="ml-4">
+                <p class="text-sm mb-2 text-text-color-secondary">Recidences Destroyed</p>
+                <h6 id="totalResidencesDestroyed" class="text-lg font-bold drop-shadow-md text-white">0</h6>
+            </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+            <i class="fas fa-calendar-day text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+            <div class="ml-4">
+                <p class="text-sm mb-2 text-text-color-secondary">Total Wildfires stated today</p>
+                <h6 id="totalWildfiresToday" class="text-lg font-bold drop-shadow-md text-white">0</h6>
+            </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
+            <i class="fas fa-user-times text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
+            <div class="ml-4">
+                <p class="text-sm mb-2 text-text-color-secondary">Fatalities</p>
+                <h6 id="totalFatalities" class="text-lg font-bold drop-shadow-md text-white">0</h6>   
+            </div>
+        </div>
+    </div>
+</div>
+
 
             <footer class="bg-gray-900 md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 flex items-center justify-center">
                 <ul class="flex items-center flex-wrap mb-6 md:mb-0">
