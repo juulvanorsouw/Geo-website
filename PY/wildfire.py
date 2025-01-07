@@ -1,6 +1,24 @@
-# Import libraries
-import requests # HTTP interface
-import json     # JSON interface
+import requests
+import psycopg2
+import json
+
+# Open database connection
+conn = psycopg2.connect("host=localhost dbname=wildfire_us user=postgres password=$ port=5432") 
+cur = conn.cursor()
+
+# Create the table if it doesn't exist
+create_table_query = '''
+    CREATE TABLE IF NOT EXISTS public.current_wildfire (
+        DailyAcres FLOAT,  -- Add DailyAcres column
+        IncidentName VARCHAR(255),  -- Add IncidentName column
+        IncidentTypeCategory VARCHAR(100),  -- Add IncidentTypeCategory column
+        geom GEOMETRY(Point, 4326)
+    );
+'''
+
+# Execute the table creation query
+cur.execute(create_table_query)
+conn.commit()
 
 # HTTP headers
 headers = {
@@ -8,42 +26,48 @@ headers = {
 }
 
 # Define URL
-url = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/ArcGIS/rest/services/USA_Wildfires_v1/FeatureServer/0/query?where=1%3D1&objectIds=&time=&timeRelation=esriTimeRelationOverlaps&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&collation=&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnTrueCurves=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token='
+url = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/ArcGIS/rest/services/USA_Wildfires_v1/FeatureServer/0/query?where=1%3D1&objectIds=&time=&timeRelation=esriTimeRelationOverlaps&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&outFields=*&returnGeometry=true&f=pgeojson'
 
-# Execute request and check if request is successful
+# Execute request and check if successful
 response = requests.get(url, headers=headers)
 
 # Get result
+i = 0
 if response.status_code == 200:
     print('Request OK')
 
-    # Retrieve list with JSON objects
+    # Parse JSON response
     json_object_list = response.json()
 
-    # Initialize GeoJSON structure
-    geojson = {
-        "type": "FeatureCollection",
-        "features": []
-    }
+    # Write to file to check output from request (optional)
+    with open('data.json', 'w', encoding='utf-8') as f:
+        json.dump(json_object_list, f, ensure_ascii=False, indent=4)
 
-    # Extract features and convert to GeoJSON format
+    # Insert data into the database
     for feature in json_object_list['features']:
-        geojson_feature = {
-            "type": "Feature",
-            "geometry": feature['geometry'],
-            "properties": feature['properties']
-        }
-        geojson['features'].append(geojson_feature)
+        properties = feature['properties']
+        geom = feature['geometry']
 
-    # Write GeoJSON to file
-    with open('output.geojson', 'w', encoding='utf-8') as f:
-        json.dump(geojson, f, ensure_ascii=False, indent=4)
+        # Example: Extract key properties (adjust to match your schema)
+        DailyAcres = properties.get('DailyAcres')
+        IncidentName = properties.get('IncidentName')
+        IncidentTypeCategory = properties.get('IncidentTypeCategory')
+        longitude, latitude = geom['coordinates'] if geom['type'] == 'Point' else (None, None)
 
-    # Count number of objects
-    aantal_json_objecten = len(json_object_list['features'])
+        # Construct SQL insert statement
+        try:
+            sql_insert = '''
+                INSERT INTO public.current_wildfire (DailyAcres, IncidentName, IncidentTypeCategory, geom)
+                VALUES (%s, %s, %s, ST_SetSRID(ST_MakePoint(%s, %s), 4326))
+            '''
+            cur.execute(sql_insert, (DailyAcres, IncidentName, IncidentTypeCategory, longitude, latitude))
+            conn.commit()
+            i += 1
+        except Exception as e:
+            print(f'Insert failed with error: {e}')
+            conn.rollback()
 
-    # Print total number
-    print(f'Total number of features: {aantal_json_objecten}')
-
-else:
-    print(f'Request failed with error {response.status_code}')
+# Close database connection
+print(f'{i} rows inserted')
+cur.close()
+conn.close()
