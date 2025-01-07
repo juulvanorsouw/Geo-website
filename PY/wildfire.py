@@ -2,8 +2,22 @@ import requests
 import psycopg2
 import json
 
+# Load the password manually from the .env file
+def load_env():
+    with open('.env', 'r') as file:
+        lines = file.readlines()
+        env_vars = {}
+        for line in lines:
+            key, value = line.strip().split('=')
+            env_vars[key] = value
+    return env_vars
+
+# Load environment variables
+env_vars = load_env()
+pgadmin_password = env_vars.get('PGADMINPASSWORD')
+
 # Open database connection
-conn = psycopg2.connect("host=localhost dbname=wildfire_us user=postgres password=$ port=5432") 
+conn = psycopg2.connect(f"host=localhost dbname=wildfire_us user=postgres password={pgadmin_password} port=5432")
 cur = conn.cursor()
 
 # Create the table if it doesn't exist
