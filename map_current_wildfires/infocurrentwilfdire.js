@@ -35,9 +35,9 @@ async function fetchWildfireData(state) {
     data.features.forEach((feature) => {
       totalwildfires += 1;
       const acres = feature.properties.calculatedacres || 0;
-      const fatalities = feature.properties.totalfatalities || 0;
+      const fatalities = feature.properties.fatalities || 0;
       const personnel = feature.properties.totalincidentpersonnel || 0;
-      const residences = feature.properties.totalresidencesdestroyed || 0;
+      const residences = feature.properties.residencesdestroyed || 0;
 
       totalacresburned += acres;
       totalfatalities += fatalities;
