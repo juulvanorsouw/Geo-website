@@ -2,7 +2,7 @@
 
 // Configuration for the map
 let config = {
-  minZoom: 4,
+  minZoom: 9,
   maxZoom: 18,
 };
 
