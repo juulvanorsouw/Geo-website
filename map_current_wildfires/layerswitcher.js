@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateMapLayer(stateAbbr);
   });
 
-  // Initialize with all states data
   updateMapLayer('');
 });
 
@@ -75,19 +74,22 @@ function updateMapLayer(stateAbbr) {
     map.removeLayer(StateLayer);
   }
 
-  const filteredState = {
-    type: 'FeatureCollection',
-    features: State.features.filter(feature => {
-      return stateAbbr ? feature.properties.STATE_ABBR === stateAbbr : true;
-    })
-  };
+  if (stateAbbr) {
+    const filteredState = {
+      type: 'FeatureCollection',
+      features: State.features.filter(feature => feature.properties.STATE_ABBR === stateAbbr)
+    };
 
-  StateLayer = L.geoJSON(filteredState, {
-    style: StateStyle
-  });
+    StateLayer = L.geoJSON(filteredState, {
+      style: StateStyle
+    });
 
-  map.addLayer(StateLayer);
+    map.addLayer(StateLayer);
+  } else {
+    StateLayer = null; 
+  }
 }
+
 
 
 // Define layer control options
