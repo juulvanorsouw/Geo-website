@@ -1,4 +1,5 @@
 import { map } from "./map.js";
+import { State } from "./data/state.js";
 
 // Define map layers
 let current_wilfdire = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wms', {
@@ -44,6 +45,50 @@ const basemaps = {
 // Add default base map layer to the map
 map.addLayer(Esri_WorldDarkGrayCanvas);
 map.addLayer(current_wilfdire);
+
+const StateStyle = {
+  color: "#FF4500",
+  weight: 2,
+  opacity: 0.9
+};
+
+let StateLayer;
+
+document.addEventListener('DOMContentLoaded', function() {
+  const stateSelect = document.getElementById('state-select');
+
+  stateSelect.addEventListener('change', function() {
+    const selectedValue = stateSelect.value;
+    const stateAbbr = selectedValue.slice(-2); // Extract the last two characters
+    console.log('Selected State:', stateAbbr);
+
+    // Update the map layer to show only the selected state
+    updateMapLayer(stateAbbr);
+  });
+
+  // Initialize with all states data
+  updateMapLayer('');
+});
+
+function updateMapLayer(stateAbbr) {
+  if (StateLayer) {
+    map.removeLayer(StateLayer);
+  }
+
+  const filteredState = {
+    type: 'FeatureCollection',
+    features: State.features.filter(feature => {
+      return stateAbbr ? feature.properties.STATE_ABBR === stateAbbr : true;
+    })
+  };
+
+  StateLayer = L.geoJSON(filteredState, {
+    style: StateStyle
+  });
+
+  map.addLayer(StateLayer);
+}
+
 
 // Define layer control options
 const layers = {
