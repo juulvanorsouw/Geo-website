@@ -1,22 +1,18 @@
-import { map } from "./map.js";
-
 // Declare global variables
 let totalwildfires = 0;
 let totalacresburned = 0;
 let totalfatalities = 0;
 let totalincidentpersonnel = 0;
 let totalresidencesdestroyed = 0;
-let totalwildfirestoday = 0;
+let incidenttypecategory = 0;  // Updated to count RX fires
 
 // Function to fetch wildfire data and calculate totals
 async function fetchWildfireData(state) {
-  // GeoServer WFS URL with CQL filter for the selected state
   const wfsUrl = state
     ? `http://localhost:8080/geoserver/Wildfire/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Wildfire:current_wilfdire&outputFormat=application/json&cql_filter=poostate='${state}'`
     : `http://localhost:8080/geoserver/Wildfire/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Wildfire:current_wilfdire&outputFormat=application/json`;
 
   try {
-    // Fetch data from GeoServer
     const response = await fetch(wfsUrl);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -30,6 +26,7 @@ async function fetchWildfireData(state) {
     totalfatalities = 0;
     totalincidentpersonnel = 0;
     totalresidencesdestroyed = 0;
+    incidenttypecategory = 0;  // Reset RX count
 
     // Loop through features and calculate totals
     data.features.forEach((feature) => {
@@ -38,11 +35,17 @@ async function fetchWildfireData(state) {
       const fatalities = feature.properties.fatalities || 0;
       const personnel = feature.properties.totalincidentpersonnel || 0;
       const residences = feature.properties.residencesdestroyed || 0;
+      const typeCategory = feature.properties.incidenttypecategory || '';  // Get incident type category
 
       totalacresburned += acres;
       totalfatalities += fatalities;
       totalincidentpersonnel += personnel;
       totalresidencesdestroyed += residences;
+
+      // Count RX incident type
+      if (typeCategory === 'RX') {
+        incidenttypecategory += 1;
+      }
     });
 
     // Round totals to the nearest integer where necessary
@@ -55,17 +58,18 @@ async function fetchWildfireData(state) {
     console.log('Total Fatalities:', totalfatalities);
     console.log('Total Incident Personnel:', totalincidentpersonnel);
     console.log('Total Residences Destroyed:', totalresidencesdestroyed);
+    console.log('Total RX Fires:', incidenttypecategory);
 
     // Update HTML content with the fetched data
     updateHTMLContent();
 
-    // Optionally return the calculated values
     return {
       totalwildfires,
       totalacresburned,
       totalfatalities,
       totalincidentpersonnel,
       totalresidencesdestroyed,
+      incidenttypecategory,  // Include RX count in return object
     };
   } catch (error) {
     console.error('Error fetching wildfire data:', error);
@@ -80,6 +84,7 @@ function updateHTMLContent() {
   document.getElementById('totalfatalities').innerText = totalfatalities;
   document.getElementById('totalincidentpersonnel').innerText = totalincidentpersonnel;
   document.getElementById('totalresidencesdestroyed').innerText = totalresidencesdestroyed;
+  document.getElementById('incidenttypecategory').innerText = incidenttypecategory;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -88,11 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
   stateSelect.addEventListener('change', async function() {
     const selectedValue = stateSelect.value;
     console.log('Selected State:', selectedValue);
-
-    // Fetch and calculate wildfire data for the selected state or all states if no state is selected
     await fetchWildfireData(selectedValue);
   });
 
-  // Initialize with all states data
   fetchWildfireData('');
 });

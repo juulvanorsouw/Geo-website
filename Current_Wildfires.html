@@ -181,7 +181,7 @@
             <i class="fas fa-fire-extinguisher  text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
             <div class="ml-4">
                 <p class="text-sm mb-2 text-text-color-secondary">Total Personal Incidents</p>
-                <h6 id="totalincidentpersonnel" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
+                <h6 id="totalincidentpersonnel" class="text-lg font-bold drop-shadow-md text-white">0</h6>                    
             </div>
         </div>
 
@@ -204,8 +204,8 @@
         <div class="bg-gray-900 rounded-xl p-5 flex items-center justify-between w-full shadow-lg hover:bg-darker-background transition-all duration-300 ease-in-out">
             <i class="fas fa-calendar-day text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
             <div class="ml-4">
-                <p class="text-sm mb-2 text-text-color-secondary">Total Wildfires started today</p>
-                <h6 id="totalwildfirestoday" class="text-lg font-bold drop-shadow-md text-white">0</h6>
+                <p class="text-sm mb-2 text-text-color-secondary">RX (Prescribed Fire):</p>
+                <h6 id="incidenttypecategory" class="text-lg font-bold drop-shadow-md text-white">0</h6>
             </div>
         </div>
 
@@ -264,6 +264,7 @@
         let totalincidentpersonnel = 0;
         let totalresidencesdestroyed = 0;
         let totalwildfirestoday = 0;
+        let incidenttypecategoryCounts = 0;
     
         window.onload = function() {
             fetchWildfireData('');
