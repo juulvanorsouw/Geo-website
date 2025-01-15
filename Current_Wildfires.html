@@ -92,7 +92,7 @@
         <!-- Main Content Area -->
         <div class="flex-1 p-8">
             <header class="bg-gray-900 text-white text-center shadow rounded-lg p-4 md:p-6 xl:p-8 my-1 mx-2 relative flex items-center justify-center">
-                <h3 class="text-2xl"><b>Camp Fire (2018)</b></h3>
+                <h3 class="text-2xl"><b>Current Wildfires</b></h3>
                 <!-- Hamburger Icon -->
                 <button id="sidebarToggler" class="absolute top-1/2 left-6 transform -translate-y-1/2 cursor-pointer">
                     <i class="fas fa-bars text-2xl"></i>
@@ -172,7 +172,7 @@
             <i class="fas fa-dollar-sign text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
             <div class="ml-4">
                 <p class="text-sm mb-2 text-text-color-secondary">Current Wildfires</p>
-                <h6 id="totalWildfires" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
+                <h6 id="totalwildfires" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
             </div>
         </div>
         
@@ -180,7 +180,7 @@
             <i class="fas fa-fire-extinguisher  text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
             <div class="ml-4">
                 <p class="text-sm mb-2 text-text-color-secondary">Total Personal Incidents</p>
-                <h6 id="totalIncidentPersonnel" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
+                <h6 id="totalincidentpersonnel" class="text-lg font-bold drop-shadow-md text-white">0</h6>                           
             </div>
         </div>
 
@@ -188,7 +188,7 @@
             <i class="fas fa-fire text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
             <div class="ml-4">
                 <p class="text-sm mb-2 text-text-color-secondary">Acres burned</p>
-                <h6 id="totalAcresBurned" class="text-lg font-bold drop-shadow-md text-white">0</h6>
+                <h6 id="totalacresburned" class="text-lg font-bold drop-shadow-md text-white">0</h6>
             </div>
         </div>
 
@@ -196,7 +196,7 @@
             <i class="fas fa-home text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
             <div class="ml-4">
                 <p class="text-sm mb-2 text-text-color-secondary">Recidences Destroyed</p>
-                <h6 id="totalResidencesDestroyed" class="text-lg font-bold drop-shadow-md text-white">0</h6>
+                <h6 id="totalresidencesdestroyed" class="text-lg font-bold drop-shadow-md text-white">0</h6>
             </div>
         </div>
 
@@ -204,7 +204,7 @@
             <i class="fas fa-calendar-day text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
             <div class="ml-4">
                 <p class="text-sm mb-2 text-text-color-secondary">Total Wildfires stated today</p>
-                <h6 id="totalWildfiresToday" class="text-lg font-bold drop-shadow-md text-white">0</h6>
+                <h6 id="totalwildfirestoday" class="text-lg font-bold drop-shadow-md text-white">0</h6>
             </div>
         </div>
 
@@ -212,7 +212,7 @@
             <i class="fas fa-user-times text-5xl text-red-600" style="text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.9);"></i>
             <div class="ml-4">
                 <p class="text-sm mb-2 text-text-color-secondary">Fatalities</p>
-                <h6 id="totalFatalities" class="text-lg font-bold drop-shadow-md text-white">0</h6>   
+                <h6 id="totalfatalities" class="text-lg font-bold drop-shadow-md text-white">0</h6>   
             </div>
         </div>
     </div>
@@ -255,11 +255,17 @@
     <script type="module">
         console.log('Ewa');
         import fetchWildfireData from './map_current_wildfires/infocurrentwilfdire.js';
-
+    
+        let totalwildfires = 0; 
+        let totalacresburned = 0;
+        let totalfatalities = 0;
+        let totalincidentpersonnel = 0;
+        let totalresidencesdestroyed = 0;
+        let totalwildfirestoday = 0;
+    
         window.onload = function() {
-            fetchWildfireData();
+            fetchWildfireData('');
         };
-        console.log('Total Wildfires:', totalWildfires);
     </script>
 </body>
 

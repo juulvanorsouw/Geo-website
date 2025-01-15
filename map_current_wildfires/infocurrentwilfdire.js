@@ -1,10 +1,9 @@
 // Declare global variables
-let totalWildfires = 0;
-let totalAcresBurned = 0;
-let totalFatalities = 0;
-let totalIncidentPersonnel = 0;
-let totalResidencesDestroyed = 0;
-let totalWildfiresToday = 0;
+let totalwildfires = 0;
+let totalacresburned = 0;
+let totalfatalities = 0;
+let totalincidentpersonnel = 0;
+let totalresidencesdestroyed = 0;
 
 // Function to fetch wildfire data and calculate totals
 async function fetchWildfireData() {
@@ -21,61 +20,47 @@ async function fetchWildfireData() {
         const data = await response.json();
 
         // Reset totals before calculation
-        totalWildfires = 0;
-        totalAcresBurned = 0;
-        totalFatalities = 0;
-        totalIncidentPersonnel = 0;
-        totalResidencesDestroyed = 0;
-        totalWildfiresToday = 0;
-
-        // Get today's date in timestamp format (midnight, start of the day)
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        const todayTimestamp = today.getTime();
+        totalwildfires = 0;
+        totalacresburned = 0;
+        totalfatalities = 0;
+        totalincidentpersonnel = 0;
+        totalresidencesdestroyed = 0;
 
         // Loop through features and calculate totals
         data.features.forEach((feature) => {
-            totalWildfires += 1;
-            const acres = feature.properties.CalculatedAcres || 0;
-            const fatalities = feature.properties.Fatalities || 0;
-            const personnel = feature.properties.TotalIncidentPersonnel || 0;
-            const residences = feature.properties.ResidencesDestroyed || 0;
-            const fireDiscoveryTimestamp = feature.properties.FireDiscoveryDateTime || 0;
+            totalwildfires += 1;
+            const acres = feature.properties.calculatedacres || 0;
+            const fatalities = feature.properties.totalfatalities || 0;
+            const personnel = feature.properties.totalincidentpersonnel || 0;
+            const residences = feature.properties.totalresidencesdestroyed || 0;
 
-            totalAcresBurned += acres;
-            totalFatalities += fatalities;
-            totalIncidentPersonnel += personnel;
-            totalResidencesDestroyed += residences;
-
-            // Check if the FireDiscoveryDateTime matches today's date
-            if (fireDiscoveryTimestamp >= todayTimestamp && fireDiscoveryTimestamp < (todayTimestamp + 86400000)) {
-                totalWildfiresToday += 1;
-            }
+            totalacresburned += acres;
+            totalfatalities += fatalities;
+            totalincidentpersonnel += personnel;
+            totalresidencesdestroyed += residences;
         });
 
         // Round totals to the nearest integer where necessary
-        totalAcresBurned = Math.round(totalAcresBurned);
-        totalIncidentPersonnel = Math.round(totalIncidentPersonnel);
+        totalacresburned = Math.round(totalacresburned);
+        totalincidentpersonnel = Math.round(totalincidentpersonnel);
 
         // Log results
-        console.log('Total Wildfires:', totalWildfires);
-        console.log('Total Acres Burned:', totalAcresBurned);
-        console.log('Total Fatalities:', totalFatalities);
-        console.log('Total Incident Personnel:', totalIncidentPersonnel);
-        console.log('Total Residences Destroyed:', totalResidencesDestroyed);
-        console.log('Total Wildfires Today:', totalWildfiresToday)
+        console.log('Total Wildfires:', totalwildfires);
+        console.log('Total Acres Burned:', totalacresburned);
+        console.log('Total Fatalities:', totalfatalities);
+        console.log('Total Incident Personnel:', totalincidentpersonnel);
+        console.log('Total Residences Destroyed:', totalresidencesdestroyed);
 
         // Update HTML content with the fetched data
         updateHTMLContent();
 
         // Optionally return the calculated values
         return {
-            totalWildfires,
-            totalAcresBurned,
-            totalFatalities,
-            totalIncidentPersonnel,
-            totalResidencesDestroyed,
-            totalWildfiresToday,
+            totalwildfires,
+            totalacresburned,
+            totalfatalities,
+            totalincidentpersonnel,
+            totalresidencesdestroyed,
         };
     } catch (error) {
         console.error('Error fetching wildfire data:', error);
@@ -85,14 +70,13 @@ async function fetchWildfireData() {
 
 // Function to update HTML content with the fetched data
 function updateHTMLContent() {
-    document.getElementById('totalWildfires').innerText = totalWildfires;
-    document.getElementById('totalAcresBurned').innerText = totalAcresBurned;
-    document.getElementById('totalFatalities').innerText = totalFatalities;
-    document.getElementById('totalIncidentPersonnel').innerText = totalIncidentPersonnel;
-    document.getElementById('totalResidencesDestroyed').innerText = totalResidencesDestroyed;
-    document.getElementById('totalWildfiresToday').innerText = totalWildfiresToday;
+    document.getElementById('totalwildfires').innerText = totalwildfires;
+    document.getElementById('totalacresburned').innerText = totalacresburned;
+    document.getElementById('totalfatalities').innerText = totalfatalities;
+    document.getElementById('totalincidentpersonnel').innerText = totalincidentpersonnel;
+    document.getElementById('totalresidencesdestroyed').innerText = totalresidencesdestroyed;
 }
 
 // Export function and variables
 export default fetchWildfireData;
-export { totalWildfires, totalAcresBurned, totalFatalities, totalIncidentPersonnel, totalResidencesDestroyed, totalWildfiresToday };
+export { totalwildfires, totalacresburned, totalfatalities, totalincidentpersonnel, totalresidencesdestroyed };
