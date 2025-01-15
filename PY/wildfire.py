@@ -22,10 +22,16 @@ cur = conn.cursor()
 
 # Create the table if it doesn't exist
 create_table_query = '''
-    CREATE TABLE IF NOT EXISTS public.current_wildfire (
-        DailyAcres FLOAT,  -- Add DailyAcres column
-        IncidentName VARCHAR(255),  -- Add IncidentName column
-        IncidentTypeCategory VARCHAR(100),  -- Add IncidentTypeCategory column
+    CREATE TABLE IF NOT EXISTS public.current_wilfdire (
+        DailyAcres FLOAT,
+        IncidentName VARCHAR(255),
+        IncidentTypeCategory VARCHAR(100),
+        UniqueFireIdentifier VARCHAR(100),
+        POOState VARCHAR(50),
+        CalculatedAcres FLOAT,  -- Add CalculatedAcres column
+        Fatalities INTEGER,  -- Add Fatalities column
+        TotalIncidentPersonnel INTEGER,  -- Add TotalIncidentPersonnel column
+        ResidencesDestroyed INTEGER,  -- Add ResidencesDestroyed column
         geom GEOMETRY(Point, 4326)
     );
 '''
@@ -62,19 +68,25 @@ if response.status_code == 200:
         properties = feature['properties']
         geom = feature['geometry']
 
-        # Example: Extract key properties (adjust to match your schema)
+        # Extract key properties (adjust to match your schema)
         DailyAcres = properties.get('DailyAcres')
         IncidentName = properties.get('IncidentName')
         IncidentTypeCategory = properties.get('IncidentTypeCategory')
+        UniqueFireIdentifier = properties.get('UniqueFireIdentifier')
+        POOState = properties.get('POOState')
+        CalculatedAcres = properties.get('CalculatedAcres')
+        Fatalities = properties.get('Fatalities')
+        TotalIncidentPersonnel = properties.get('TotalIncidentPersonnel')
+        ResidencesDestroyed = properties.get('ResidencesDestroyed')
         longitude, latitude = geom['coordinates'] if geom['type'] == 'Point' else (None, None)
 
         # Construct SQL insert statement
         try:
             sql_insert = '''
-                INSERT INTO public.current_wildfire (DailyAcres, IncidentName, IncidentTypeCategory, geom)
-                VALUES (%s, %s, %s, ST_SetSRID(ST_MakePoint(%s, %s), 4326))
+                INSERT INTO public.current_wilfdire (DailyAcres, IncidentName, IncidentTypeCategory, UniqueFireIdentifier, POOState, CalculatedAcres, Fatalities, TotalIncidentPersonnel, ResidencesDestroyed, geom)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, ST_SetSRID(ST_MakePoint(%s, %s), 4326))
             '''
-            cur.execute(sql_insert, (DailyAcres, IncidentName, IncidentTypeCategory, longitude, latitude))
+            cur.execute(sql_insert, (DailyAcres, IncidentName, IncidentTypeCategory, UniqueFireIdentifier, POOState, CalculatedAcres, Fatalities, TotalIncidentPersonnel, ResidencesDestroyed, longitude, latitude))
             conn.commit()
             i += 1
         except Exception as e:
