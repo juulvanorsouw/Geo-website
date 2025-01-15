@@ -1,13 +1,14 @@
 import { map } from "./map.js";
 
 // Define map layers
-let current_wilfdire = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wfs', {
+let current_wilfdire = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wms', {
   layers: 'current_wilfdire',
   format: 'image/png',
   transparent: true,
+  cql_filter: '' // Initialize with an empty CQL filter
 });
 
-let wildfire_risk = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wfs', {
+let wildfire_risk = new L.TileLayer.WMS('http://localhost:8080/geoserver/Wildfire/wms', {
   layers: 'NRI_Risk_rating',
   format: 'image/png',
   transparent: true,
@@ -53,3 +54,23 @@ const layers = {
 // Create and add base map switcher control to the map
 const lagenSwitcher = new L.Control.Layers(basemaps, layers);
 map.addControl(lagenSwitcher);
+
+document.addEventListener('DOMContentLoaded', function() {
+  const stateSelect = document.getElementById('state-select');
+
+  stateSelect.addEventListener('change', function() {
+    const selectedValue = stateSelect.value;
+    console.log('Selected State:', selectedValue);
+
+    // Update the CQL filter for the current_wilfdire layer
+    if (selectedValue) {
+      current_wilfdire.setParams({
+        cql_filter: `poostate='${selectedValue}'`
+      });
+    } else {
+      current_wilfdire.setParams({
+        cql_filter: ''
+      });
+    }
+  });
+});
