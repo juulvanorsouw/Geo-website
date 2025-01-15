@@ -34,9 +34,8 @@ map.addLayer(osmLayer);
 
 // Define style for the camp fire layer
 const campFireStyle = {
-  color: "#FF4500",
+  color: "#E53935",
   weight: 2,
-  opacity: 0.8
 };
 const campFireLayer = L.geoJSON(camp_fire, {
   style: campFireStyle
