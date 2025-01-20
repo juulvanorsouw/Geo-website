@@ -19,4 +19,4 @@ This is my first website project! It's a dashboard-style application that displa
 The website consists of two pages. One provides the most up-to-date information about wildfires in the United States, ensuring that data is as current as possible. The second page focuses on the Camp Fire (2018), which was the most financially destructive wildfire.
 
 ## Link to website
-https://juulvanorsouw.github.io/Geo-website/Camp_Fire.html
+https://juulvanorsouw.github.io/Geo-website/Login.html
